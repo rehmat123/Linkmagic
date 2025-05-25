@@ -63,7 +63,7 @@ function findCommentBox() {
             }
         }
     }
-
+    
     return null;
 }
 
