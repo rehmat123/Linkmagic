@@ -1,0 +1,20 @@
+{
+  "manifest_version": 3,
+  "name": "Text Box Enhancer",
+  "version": "1.0",
+  "description": "Adds a button next to text boxes to enhance text with AI",
+  "permissions": [
+    "activeTab",
+    "scripting"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "css": ["styles.css"]
+    }
+  ],
+  "background": {
+    "service_worker": "background.js"
+  }
+} 
