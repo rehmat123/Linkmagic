@@ -108,7 +108,7 @@ function createButton() {
             const response = await chrome.runtime.sendMessage({
                 action: 'generateComment',
                 postContent: postContent,
-                existingComment: commentBox.innerText
+                existingComment: commentBox.innerText.trim()
             });
             
             if (response && response.comment) {
