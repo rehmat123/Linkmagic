@@ -2,8 +2,6 @@
 
 A Chrome extension that helps you generate and format professional LinkedIn comments using AI. The extension adds a magic button to LinkedIn posts that can generate new comments or format existing ones based on your professional context.
 
-![Extension Demo](docs/image.png)
-
 ## Demo
 
 ![Working](docs/demo.gif)
@@ -30,12 +28,12 @@ cd linkedin-comment-enhancer
 
 4. Click "Load unpacked" and select the extension directory
 
-![Installation Guide](docs/installation.png)
 
 ## Setup
 
 1. Click the extension icon in your Chrome toolbar
-2. Enter your professional context in the popup
+2. Enter your professional context in the popup 
+![Extension Demo](docs/image.png)
 3. Click "Save Context" to generate your personalized system prompt
 
 
@@ -56,28 +54,6 @@ cd linkedin-comment-enhancer
 3. Your comment will be reformatted to be more professional
 
 
-## API Setup
-
-The extension requires a local API server running on port 3006. The server should implement two endpoints:
-
-1. `/api/linkedin/system-prompt`
-   - POST request
-   - Body: `{ "context": "user's professional context" }`
-   - Response: `{ "systemPrompt": "generated system prompt" }`
-
-2. `/api/linkedin/auto-reply`
-   - POST request
-   - Body: 
-     ```json
-     {
-       "post": "LinkedIn post content",
-       "type": "linkedin_comment_generate" | "linkedin_comment_format",
-       "reply": "existing comment (for formatting)",
-       "systemPrompt": "user's system prompt"
-     }
-     ```
-   - Response: `{ "reply": "generated/formatted comment" }`
-
 ## Development
 
 ### Project Structure
@@ -95,20 +71,6 @@ linkedin-comment-enhancer/
     ├── icon48.png
     └── icon128.png
 ```
-
-### Building from Source
-
-1. Install dependencies:
-```bash
-npm install
-```
-
-2. Build the extension:
-```bash
-npm run build
-```
-
-3. Load the `dist` directory as an unpacked extension in Chrome
 
 ## Contributing
 

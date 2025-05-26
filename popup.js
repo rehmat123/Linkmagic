@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
             statusDiv.style.color = '#666';
 
             // Call API to get system prompt
-            const response = await fetch('http://localhost:3006/api/linkedin/system-prompt', {
+            const response = await fetch('https://linkedin-auto-reply.vercel.app/api/linkedin/system-prompt', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

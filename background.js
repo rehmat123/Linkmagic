@@ -1,5 +1,5 @@
 // Replace this URL with your actual API endpoint
-const API_ENDPOINT = 'http://localhost:3006/api/linkedin/auto-reply';
+const API_ENDPOINT = 'https://linkedin-auto-reply.vercel.app/api/linkedin/auto-reply';
 
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
     if (request.action === 'generateComment') {
