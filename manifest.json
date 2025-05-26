@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
-  "name": "Text Box Enhancer",
+  "name": "LinkMagic",
   "version": "1.0",
-  "description": "Adds a button next to text boxes to enhance text with AI",
+  "description": "Adds a Magic Button on Linkedin Page to auto generate or Format Replies with AI",
   "permissions": [
     "activeTab",
     "scripting",
