@@ -18,12 +18,15 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
 
 async function generateComment(postContent, existingComment = '') {
     try {
+        // Get user context and system prompt from storage
+        const {systemPrompt } = await chrome.storage.sync.get(['systemPrompt']);
+        
         const requestBody = {
             post: postContent,
             type: existingComment.trim() ? 'linkedin_comment_format' : 'linkedin_comment_generate',
             reply: existingComment.trim() ? existingComment.trim() : undefined,
+            systemPrompt: systemPrompt || ''
         };
-
 
         const response = await fetch(API_ENDPOINT, {
             method: 'POST',
