@@ -1,5 +1,4 @@
-# LinkedIn Comment Enhancer
-
+# <image src="docs/icon.png" width=36 height=36> LinkedIn Comment Enhancer
 A Chrome extension that helps you generate and format professional LinkedIn comments using AI. The extension adds a magic button to LinkedIn posts that can generate new comments or format existing ones based on your professional context.
 
 ## Demo
@@ -39,11 +38,13 @@ cd linkedin-comment-enhancer
 
 ## Usage
 
+![Usage](docs/Linkedin.png)
+
 ### Generating New Comments
 
 1. Navigate to any LinkedIn post
 2. Click the "Comment" button
-3. Click the ✨ button that appears on the right side ![Magic Button](docs/button.png)
+3. Click the ✨ button that appears on the right side
 4. Your AI-generated comment will appear in the comment box
 
 
