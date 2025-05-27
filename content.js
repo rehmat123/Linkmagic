@@ -9,24 +9,63 @@ document.addEventListener('focusin', (event) => {
         target.matches('[data-placeholder="Add a comment…"]') ||
         target.closest('.ql-editor[contenteditable="true"]')) {
         lastFocusedCommentBox = target;
-        console.log('Tracked new focused comment box:', lastFocusedCommentBox);
     }
 });
 
-function getLinkedInPostContent(commentBox) {
-    // Find the closest post container to the comment box
-    const postContainer = commentBox.closest('.feed-shared-update-v2');
-    if (postContainer) {
-        // Get the post content within this specific post
-        const postContent = postContainer.querySelector('.feed-shared-update-v2__description');
+function getLinkedInPostContent(commentBox) {    
+    // First try to find the post content in the modal view
+    const modalContent = document.querySelector('.feed-shared-update-detail-viewer__content');
+    if (modalContent) {
+        const postContent = modalContent.querySelector('.feed-shared-inline-show-more-text');
         if (postContent) {
-            // Get the text content and clean it up
-            let text = postContent.innerText;
-            // Remove any "see more" text if present
-            text = text.replace(/…more/g, '').trim();
-            return text;
+            const text = postContent.innerText.replace(/…more/g, '').trim();
+            if (text) return text;
         }
     }
+    
+    // If not in modal view, try the regular feed view
+    const postContainer = commentBox.closest('.feed-shared-update-v2, .feed-shared-article, .feed-shared-external-v2');
+    
+    if (postContainer) {
+        // Try different selectors for post content
+        const contentSelectors = [
+            '.feed-shared-update-v2__description',
+            '.feed-shared-text',
+            '.feed-shared-article__description',
+            '.feed-shared-external-v2__description',
+            '.feed-shared-text-view',
+            '.feed-shared-inline-show-more-text'
+        ];
+        
+        
+        for (const selector of contentSelectors) {
+            const postContent = postContainer.querySelector(selector);
+            
+            if (postContent) {
+                // Get the text content and clean it up
+                let text = postContent.innerText;
+                
+                // Remove any "see more" text if present
+                text = text.replace(/…more/g, '').trim();
+                if (text) {
+                    return text;
+                }
+            }
+        }
+        
+        // If no specific content found, try to get any text content from the post
+        console.log('No specific content found, trying to get all text from post container');
+        const allText = postContainer.innerText;
+        console.log('All text from post container:', allText);
+        
+        if (allText) {
+            const cleanedText = allText.replace(/…more/g, '').trim();
+            console.log('Returning cleaned all text:', cleanedText);
+            return cleanedText;
+        }
+    }
+    
+    console.log('No post content found');
     return null;
 }
 
