@@ -4,10 +4,10 @@
   "version": "1.0",
   "description": "Adds a Magic Button on Linkedin Page to auto generate or Format Replies with AI",
   "permissions": [
-    "activeTab",
     "storage"
   ],
   "host_permissions": [
+    "http://localhost/*",
     "https://*.linkedin.com/*",
     "https://linkedin-auto-reply.vercel.app/*"
   ],
