@@ -334,6 +334,10 @@ function addMagicButtonToCommentBox(commentBox) {
                 // Get existing comment text if any
                 const existingComment = commentBox.textContent.trim();
 
+                if(!existingComment) {
+                    commentBox.innerHTML = `<p> Generating... </p>`;
+                }
+
                 // Generate comment
                 response = await chrome.runtime.sendMessage({
                     action: 'generateComment',

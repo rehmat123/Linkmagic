@@ -58,6 +58,16 @@
             text-align: center;
             margin-top: 8px;
         }
+        .example-link {
+            font-size: 12px;
+            color: #0a66c2;
+            text-decoration: none;
+            cursor: pointer;
+            margin-top: 4px;
+        }
+        .example-link:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
@@ -68,6 +78,7 @@
                 id="userContext" 
                 placeholder="Enter your professional background, expertise, or any specific context that should be considered when generating comments..."
             ></textarea>
+            <a class="example-link" id="exampleContext">Load example context</a>
         </div>
         <button class="save-button" id="saveContext">Save Context</button>
         <div class="status" id="status"></div>
