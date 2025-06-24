@@ -2,12 +2,20 @@ document.addEventListener('DOMContentLoaded', () => {
     const userContextInput = document.getElementById('userContext');
     const saveButton = document.getElementById('saveContext');
     const statusDiv = document.getElementById('status');
+    const exampleContextLink = document.getElementById('exampleContext');
+
+    const exampleContext = `My name is XYZ. I am a Senior Software Engineer with 8+ years of experience in full-stack development, specializing in JavaScript/TypeScript, React, and Node.js. I have a strong background in building scalable web applications and microservices architecture. I'm passionate about clean code, software design patterns, and mentoring junior developers. I frequently engage in tech communities and contribute to open-source projects. Use Web Search always when some post ask question and you dont know much about that.`;
 
     // Load saved context when popup opens
     chrome.storage.sync.get(['userContext', 'systemPrompt'], (result) => {
         if (result.userContext) {
             userContextInput.value = result.userContext;
         }
+    });
+
+    // Add click handler for example context
+    exampleContextLink.addEventListener('click', () => {
+        userContextInput.value = exampleContext;
     });
 
     // Save context when button is clicked
